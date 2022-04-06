@@ -1,0 +1,38 @@
+#include<stdio.h>
+
+double arr[51];
+int N;
+int countmax;
+
+int main(void){
+	scanf("%d\n",&N);
+	for(int i=0; i<N; i++){
+		scanf("%lf",&arr[i]);
+	}
+	
+	for(int i=0; i<N; i++){
+		int count=0;
+		double min=1000000000;
+		for(int j=i-1; j>=0; j--){
+			double left=(double)(arr[i]-arr[j])/(double)(i-j);
+			if(min>left){
+				count++;
+				min=left;
+			}
+		}
+		double max=-1000000000;
+		for(int j=i+1; j<N; j++){
+			double right=(double)(arr[j]-arr[i])/(double)(j-i);
+			if(max<right){
+				count++;
+				max=right;
+			}
+		}			
+		if(count>countmax){
+			countmax=count;
+		}
+	}
+	printf("%d",countmax);
+	return 0;
+
+}
