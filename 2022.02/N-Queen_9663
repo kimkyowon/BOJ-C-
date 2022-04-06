@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<stdlib.h>
+int N,result=0;
+int Q_line[15];
+int check=1;
+void checkline(int line){ //행과 열 그리고 대각선이 아닌지 체크 
+	check=1;
+	for(int i=0; i<line; i++){
+		if(Q_line[i]==Q_line[line] || abs(Q_line[line]-Q_line[i])==line-i){
+			check=0;
+		}	
+	}
+}
+
+int N_Queen(int line){
+	if(line==N-1){
+		result++;
+	
+	}
+	else{
+		for(int i=0; i<N; i++){
+			Q_line[line+1]=i;
+			checkline(line+1);
+			if(check==1){
+				N_Queen(line+1);
+			}
+		}
+	}
+}
+
+
+int main(void){
+	scanf("%d",&N);
+	N_Queen(-1);
+	printf("%d",result);
+}
