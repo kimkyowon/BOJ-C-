@@ -1,0 +1,20 @@
+#include<stdio.h>
+
+int gcd(int a,int b){
+    if(a % b == 0) return b;
+    else return gcd(b, a%b);
+}
+
+int main(void){
+	int N,i,k;
+	int A[100];
+	scanf("%d",&N);
+	for(i=0; i<N; i++){
+		scanf("%d",&A[i]);
+		if(i>0){
+			k=gcd(A[0],A[i]);
+			printf("%d/%d\n",A[0]/k,A[i]/k);
+		}
+	}
+	
+}
