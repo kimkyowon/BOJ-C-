@@ -1,0 +1,12 @@
+#include<stdio.h>
+
+int main(void){
+	int n;
+	int a,b,c=0;
+	scanf("%d",&n);
+	a=n/5;
+	b=n/25;
+	c=n/125;
+	printf("%d",a+b+c);
+	return 0;
+}
