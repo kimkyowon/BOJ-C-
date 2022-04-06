@@ -1,0 +1,38 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+
+long long int a;
+long long int N,K;
+long long list[10000];
+
+int main(){
+	std::ios::sync_with_stdio(false);
+	std::cin.tie(NULL);
+	
+	cin>>K>>N;
+	long long int maxx=0;
+	for(int i=0; i<K; i++){
+		cin>>list[i];
+		maxx=max(maxx,list[i]);
+	}
+	long long start=1,end=maxx,mid;
+	
+	while(start<=end){
+		mid=(start+end)/2;
+		long long int n=0;
+		for(int i=0; i<K; i++){
+			n+=list[i]/mid;
+		}
+		if(n>=N){
+			start=mid+1;
+			a=max(a,mid);
+		}
+		else{
+			end=mid-1;
+		}
+		
+	}
+	cout<<a<<endl;
+	return 0;
+}
