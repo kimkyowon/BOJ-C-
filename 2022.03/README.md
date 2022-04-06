@@ -1,8 +1,8 @@
-[회의실 배정](https://www.acmicpc.net/problem/1931)  ||  
-[제곱 ㄴㄴ수](https://www.acmicpc.net/problem/1016)
-[정수 삼각형](https://www.acmicpc.net/problem/1932)
-[유기농 배추](https://www.acmicpc.net/problem/1012)
-[신나는 함수 실행](https://www.acmicpc.net/problem/9184)
+[회의실 배정](https://www.acmicpc.net/problem/1931)  ||
+[제곱 ㄴㄴ수](https://www.acmicpc.net/problem/1016)  ||
+[정수 삼각형](https://www.acmicpc.net/problem/1932)  ||
+[유기농 배추](https://www.acmicpc.net/problem/1012)  ||
+[신나는 함수 실행](https://www.acmicpc.net/problem/9184)  ||
 [스도쿠](https://www.acmicpc.net/problem/2580)
 [쉬운 계단 수](https://www.acmicpc.net/problem/10844)
 [숫자 카드2](https://www.acmicpc.net/problem/10816)
