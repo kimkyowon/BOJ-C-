@@ -10,3 +10,4 @@
 [N과M(1)](https://www.acmicpc.net/problem/15649)   ||
 [Fly me to the Alpha Centauri](https://www.acmicpc.net/problem/1011)   ||
 [N-Queen](https://www.acmicpc.net/problem/9663)   ||
+[링](https://www.acmicpc.net/problem/3036)   ||
