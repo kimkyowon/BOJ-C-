@@ -3,9 +3,9 @@
 [정수 삼각형](https://www.acmicpc.net/problem/1932)  ||
 [유기농 배추](https://www.acmicpc.net/problem/1012)  ||
 [신나는 함수 실행](https://www.acmicpc.net/problem/9184)  ||
-[스도쿠](https://www.acmicpc.net/problem/2580)||
-[쉬운 계단 수](https://www.acmicpc.net/problem/10844)||
-[숫자 카드2](https://www.acmicpc.net/problem/10816)||
+[스도쿠](https://www.acmicpc.net/problem/2580)  ||
+[쉬운 계단 수](https://www.acmicpc.net/problem/10844)  ||
+[숫자 카드2](https://www.acmicpc.net/problem/10816)   ||
 [소수 찾기](https://www.acmicpc.net/problem/1978)||
 [소수 구하기](https://www.acmicpc.net/problem/1929)||
 [미로 탐색](https://www.acmicpc.net/problem/2178)||
