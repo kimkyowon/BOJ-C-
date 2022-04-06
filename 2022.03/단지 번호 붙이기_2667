@@ -1,0 +1,43 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+int visited[26][26];
+int hometown[26][26];
+int home[626];
+int n;
+int counting=0;
+int DFS(int x,int y) {
+	if(x<=-1||x>=n ||y<=-1||y>=n){
+		return 0;
+	}
+	if(visited[x][y]==0&&hometown[x][y]==1){
+		home[counting]+=1;
+		visited[x][y] = 1;
+		DFS(x,y+1);
+		DFS(x+1,y);
+		DFS(x-1,y);
+		DFS(x,y-1);
+		return 1;
+	}
+	return 0;
+}
+int main(){
+	cin>>n;
+	for(int i=0; i<n; i++){
+		for(int j=0; j<n; j++){
+			scanf("%1d",&hometown[i][j]);
+		}
+	}
+	for(int i=0; i<n; i++){
+		for(int j=0; j<n; j++){
+			if(DFS(i,j)==1){
+				counting++;
+			}
+		}
+	}
+	cout<<counting<<endl;
+	sort(home,home+counting);
+	for(int i=0; i<counting; i++){
+		cout<<home[i]<<endl;
+	}
+}
