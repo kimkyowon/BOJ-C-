@@ -1,0 +1,26 @@
+#include<stdio.h>
+long long arr[1000001];
+
+int main(void){
+	
+	long long min,max;
+	scanf("%lld %lld",&min,&max);
+	int count=0;
+	long long cal=0;
+	for(long long i=2; i*i<=max; i++){
+		cal=min/(i*i);
+		if(min%(i*i)!=0){
+			cal++;
+		}
+		while(cal*i*i<=max){
+			arr[cal*i*i-min]=1;
+			cal++;
+		}
+	}
+	for(int i=0; i<=max-min; i++){
+		if(arr[i]==0){
+			count++;
+		}
+	}
+	printf("%d",count);	
+}
