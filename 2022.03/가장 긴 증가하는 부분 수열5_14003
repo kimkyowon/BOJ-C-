@@ -1,0 +1,45 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
+int dp[1000001];
+int arr[1000001];
+vector<int> dp1,ans;
+int main(){
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+	int N;
+	cin>>N;
+	for(int i=1; i<=N; i++){
+		cin>>arr[i];
+	}
+	dp1.push_back(arr[1]);
+	int j=0;
+	for(int i=2; i<=N; i++){
+		if(dp1[j]<arr[i]){
+			dp1.push_back(arr[i]);
+			j++;
+			dp[i]=j;
+		
+		}
+		else{
+			int index=lower_bound(dp1.begin(),dp1.end(),arr[i])-dp1.begin();
+			dp1[index]=arr[i];
+			dp[i]=index;
+		}
+	}
+	for(int i=N; i>=0; i--){
+		if(dp[i]==j){
+			ans.push_back(arr[i]);
+			j--;
+		}
+	}
+	int size2=ans.size();
+	cout<<size2<<'\n';
+	for(int i=0; i<size2; i++){
+		cout<<ans.back()<<' ';
+		ans.pop_back();
+	}
+	
+}
