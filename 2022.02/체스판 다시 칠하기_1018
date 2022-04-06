@@ -1,0 +1,26 @@
+#include<stdio.h>
+
+int main(void){
+	int row,col,i,j,k,l;
+	int min=100;
+	char array[50][50];
+	scanf("%d %d",&row,&col);
+	
+	for(i=0; i<row; i++){
+		scanf("%s",array[i]);
+	}
+	for(i=0; i<row-7; i++){
+		for(j=0; j<col-7; j++){
+			int count=0;
+			for(k=i; k<i+8; k++){
+				for(l=j; l<j+8; l++){
+					count+=(k+l)%2==1^array[k][l]=='B';
+				}
+			}
+			count=64-count<count?64-count:count;
+			min=count<min?count:min;
+		}
+	}
+	printf("%d\n",min);
+	return 0;
+}
