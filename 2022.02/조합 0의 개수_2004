@@ -1,0 +1,33 @@
+#include<stdio.h>
+
+long long cal5(int num){
+	int result=0;
+	for(long long i=5; num/i>=1; i*=5){
+		result+=num/i;
+	}
+	return result;	
+}
+long long cal2(int num){
+	int result=0;
+	for(long long i=2; num/i>=1; i*=2){
+		result+=num/i;
+	}
+	return result;	
+}
+
+int main(void){
+	int N,M;
+	long long five,two;
+	scanf("%d %d",&N ,&M);	
+	five=cal5(N)-cal5(M)-cal5(N-M);
+	two=cal2(N)-cal2(M)-cal2(N-M);
+	if(two<=five){
+		printf("%ld",two);
+	}
+	else{
+		printf("%ld",five);
+	}
+
+	return 0;
+	
+}
