@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<string.h>
+
+int main(void){
+	int T;
+	scanf("%d",&T);
+	for(int i=0; i<T; i++){
+		char cloth[21],cloth_kind[21],kind[31][21];
+		int kind_num=0,cloth_num;
+		int day=1;
+		int num_list[31]={0,};
+		scanf("%d",&cloth_num);
+		for(int j=0; j<cloth_num; j++){
+			scanf("%s %s",cloth,cloth_kind);
+			int k=0;
+			for(k=0; k<kind_num; k++){
+				if(strcmp(kind[k],cloth_kind)==0){
+					num_list[k]++;
+					break;
+				}
+			}
+			if(k==kind_num){
+				strcpy(kind[kind_num],cloth_kind);
+				num_list[kind_num++]=1;
+			}	
+		}
+		for(int q=0; q<kind_num; q++){
+			day*=(num_list[q]+1);
+		}
+		printf("%d\n",day-1);
+	}
+	return 0;
+}
