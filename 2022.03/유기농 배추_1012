@@ -1,0 +1,52 @@
+#include<iostream>
+#include<algorithm>
+#include<string.h>
+using namespace std;
+int visited[51][51];
+int napa_cabbage[51][51];
+int K;
+int col,row;
+
+int DFS(int x,int y) {
+	if(x<=-1||x>=row ||y<=-1||y>=col){
+		return 0;
+	}
+	if(visited[x][y]==0&&napa_cabbage[x][y]==1){
+		visited[x][y] = 1;
+		DFS(x,y+1);
+		DFS(x+1,y);
+		DFS(x-1,y);
+		DFS(x,y-1);
+		return 1;
+	}
+	return 0;
+}
+int main(){
+	int T;
+	cin>>T;
+	for(int j=0; j<T; j++){
+		int counting=0;
+		int x1,y1;
+		cin>>row>>col>>K;
+		
+		for(int i=0; i<K; i++){
+			cin>>x1;
+			cin>>y1;
+			napa_cabbage[x1][y1]=1;
+		}
+		for(int x=0; x<row; x++){
+			for(int y=0; y<col; y++){
+				if(DFS(x,y)==1){
+					counting++;
+				}
+			}
+		}
+		cout<<counting<<endl;
+		for(int r=0; r<=51; r++){
+			memset(napa_cabbage[r],0,sizeof(napa_cabbage[r]));
+			memset(visited[r],0,sizeof(visited[r]));	
+		}
+		
+	}
+	
+}
