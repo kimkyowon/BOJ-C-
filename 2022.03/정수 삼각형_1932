@@ -1,0 +1,28 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+
+int dp[501][501];
+
+int main(){
+	int N; 
+	cin>>N; 
+	for(int i=0; i<N; i++){
+		for(int j=0; j<=i; j++){
+			cin>>dp[i][j];
+		}
+	}
+	for(int i=1; i<N; i++){
+		for(int j=0; j<=i; j++){
+			dp[i][j]+=max(dp[i-1][j],dp[i-1][j-1]);
+		}
+	}
+	int max=-100000;
+	for(int j=0; j<N; j++){
+		if(max<dp[N-1][j]){
+			max=dp[N-1][j];
+		}
+	}
+	cout<<max<<endl;
+	return 0;
+}
