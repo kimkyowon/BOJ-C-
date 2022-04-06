@@ -20,3 +20,4 @@
 [가장 긴 증가하는 부분 수열2](https://www.acmicpc.net/problem/12015)
 [가장 긴 바이토닉 부분 수열](https://www.acmicpc.net/problem/11054)
 [RGB 거리](https://www.acmicpc.net/problem/1149)
+[LCS](https://www.acmicpc.net/problem/9251)
