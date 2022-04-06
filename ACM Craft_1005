@@ -1,0 +1,54 @@
+#include<stdio.h>
+#include<string.h>
+int N;
+int time[1001];
+int dp[1001];
+int check[1001][1001];
+
+int ACMcraft(int num){
+	int max=0,BT;
+	if(dp[num]>=0){
+		return dp[num];
+	}
+	for(int i=1; i<=N; i++){
+		if(check[i][num]==1){
+			if(dp[i]>=0){
+				BT=dp[i];	
+			}
+			else{
+				BT=ACMcraft(i);
+			}
+			if(BT>max){
+				max=BT;
+			}
+		}
+	}
+	return dp[num]=max+time[num];
+}
+
+
+int main(void){
+	int K,T=0;
+    int num1,num2;
+    int final=0;
+	scanf("%d",&T);
+	for(int i=0; i<T; i++){
+		scanf("%d %d",&N, &K);
+		memset(time,0,sizeof(time));
+		memset(dp,-1,sizeof(dp));
+		memset(check,0,sizeof(check));
+		
+		for(int l=1; l<=N; l++){
+			scanf("%d",&time[l]);
+		}
+		int num1,num2;
+		for(int j=0; j<K; j++){
+			scanf("%d %d",&num1,&num2);
+			check[num1][num2]=1;
+		}
+		scanf("%ld",&final);
+		printf("%d\n",ACMcraft(final));
+			
+	}
+	return 0;
+}
