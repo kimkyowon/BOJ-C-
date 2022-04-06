@@ -1,0 +1,68 @@
+#include<stdio.h>
+
+int blank_num=0;
+int sdoku[9][9];
+int X_coordinate[82];
+int Y_coordinate[82];
+int stop=0;
+ 
+
+void BOJ_sdoku(int num){
+	if(num==blank_num) { //총 0의 개수보다 1개 더 많으면  더 할 필요가 없기 때문에 멈추는 기능 
+		stop=1;
+	} 
+	int visited[10]={0,};
+	int X=X_coordinate[num];
+	int Y=Y_coordinate[num];
+	int X1=X/3*3,Y1=Y/3*3,result=0;
+	
+	//행 중복 검사 
+	for(int i=0; i<9; i++){
+		visited[sdoku[X][i]]=1;
+	}
+	
+	//열 중복 검사 
+	for(int i=0; i<9; i++){
+		visited[sdoku[i][Y]]=1;
+	}
+	
+	//3*3 박스 중복 검사 
+	for(int i=X1; i<X1+3; i++){
+		for(int j=Y1; j<Y1+3; j++){
+			visited[sdoku[i][j]]=1;
+		}
+	}
+	
+	for(int i=1; i<=9; i++){
+		if(visited[i]==0){ //방문되지 않은 수이면 
+			sdoku[X][Y]=i; // 일단 넣어본다 
+			BOJ_sdoku(num+1); // 그 다음으로 나온 0을 메꾸기 위해 호출 
+			if(stop==1){ 
+				break;
+			}
+			sdoku[X][Y]=0;
+		}
+	}
+}
+
+int main(void){
+	for(int i=0; i<9; i++){
+		for(int j=0; j<9; j++){
+			scanf("%d ",&sdoku[i][j]);
+			if(sdoku[i][j]==0){
+				X_coordinate[blank_num]=i;
+				Y_coordinate[blank_num]=j;
+				blank_num++;
+			}
+		}
+	}
+	BOJ_sdoku(0);
+	
+	for(int i=0; i<9; i++){
+		for(int j=0; j<9; j++){
+			printf("%d ",sdoku[i][j]);
+		}
+		printf("\n");
+	}
+	return 0;
+}
