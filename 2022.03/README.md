@@ -1,4 +1,4 @@
-[회의실 배정](https://www.acmicpc.net/problem/1931)
+[회의실 배정](https://www.acmicpc.net/problem/1931)  ||  
 [제곱 ㄴㄴ수](https://www.acmicpc.net/problem/1016)
 [정수 삼각형](https://www.acmicpc.net/problem/1932)
 [유기농 배추](https://www.acmicpc.net/problem/1012)
