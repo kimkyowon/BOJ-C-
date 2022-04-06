@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<math.h>
+int main(void){
+	int N,i=0;
+	unsigned long start,end,a;
+	unsigned long distance=0;
+	int num=0;
+	scanf("%d",&N);
+	for(i=0; i<N; i++){
+		scanf("%ld %ld",&start,&end);
+		distance=end-start;
+		
+		a= round(sqrt(distance));
+		if(distance<=3){
+			printf("%ld\n",distance);
+		}
+		else{
+			if(distance<=a*a){
+				printf("%ld\n",a*2-1);
+			}
+			else{
+				printf("%ld\n",a*2);
+			}
+		}
+	}
+}
