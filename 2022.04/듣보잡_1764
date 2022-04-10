@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+map<string,int> maap; //각 이름별 불려진 횟수를 저장
+vector<string> dbj; // 두 번 불려진 이름은 듣도 보도 못했기에 벡터에 저장
+int N,M;
+string str;
+int main(){
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	cin>>N>>M;
+	for(int i=0; i<N+M; i++){
+		cin>>str;
+		maap[str]++; //이름 불려진 횟수 ++
+		if(maap[str]==2){ //중복이 없기 때문에 2번 불려지면 듣도 보도 못한 리스트에 둘 다 있는것
+			dbj.push_back(str); //그렇기에 정답에 추가
+		}
+	}
+	sort(dbj.begin(),dbj.end());
+	cout<<dbj.size()<<endl; 
+	for(auto p : dbj){
+		cout<<p<<endl;
+	}
+	return 0;
+}
