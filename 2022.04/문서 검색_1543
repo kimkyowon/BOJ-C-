@@ -1,0 +1,19 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+string str,check;
+int count=0;
+int main(void){
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	getline(cin,str);
+	getline(cin,check);
+	while(str.find(check)!=string::npos){ //더 이상 찾을 문자열이 없으면 종료
+		int index=str.find(check); //문자열을 찾았다면 어디서부터 찾았는지 return
+		count++; 
+		str=str.substr(index+check.length(),str.length(); //문자열을 찾았으므로 찾은 곳까지 제외하고 문자열 갱신.
+	}	
+	cout<<count;
+	return 0;
+}
