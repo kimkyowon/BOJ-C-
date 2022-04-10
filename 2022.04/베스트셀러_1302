@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+map<string,int> maap; //맵 이용(맵 자료구조는 key값을 기준으로 오름차순 정렬됨)
+string book,result;
+int cnt;
+int main(void){
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	int n;
+	cin>>n;
+	for(int i=0; i<n; i++){
+		cin>>book;
+		maap[book]++; 
+	}
+	for(auto p : maap){
+		cnt = max(cnt, p.second); //제일 높은 판매량 저장 	
+	}
+	for(auto p : maap){
+		if(p.second==cnt){ // 어차피 오름차순 정렬이라 사전순으로 정렬되어 있음.
+			cout<<p.first;
+			return 0;
+		}
+	}
+}
