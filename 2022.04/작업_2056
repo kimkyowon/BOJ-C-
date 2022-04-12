@@ -1,0 +1,53 @@
+#include<bits/stdc++.h>
+using namespace std;
+int v,e;
+int indegree[10001];
+int result[10002];
+vector<int> graph[10002];
+int arr[10002];
+
+void topologySort(){
+
+	queue<int> q;
+	for(int i=1; i<=v; i++){
+		if(indegree[i]==0){
+			q.push(i);
+		}
+	}
+	while(!q.empty()){
+		int now=q.front();
+		q.pop();
+		for(int i=0; i<graph[now].size(); i++){
+			int next=graph[now][i];
+			indegree[graph[now][i]]-=1;
+			result[graph[now][i]]=max(result[graph[now][i]],result[now]+arr[graph[now][i]]);
+			//정점마다의 최소 건설 시간 == 선행 정점들의 건설 시간+자신의 시간 
+			if(indegree[graph[now][i]]==0){
+				q.push(graph[now][i]);
+			}
+		}
+	}
+	int ans=0;
+	for(int i=1; i<=v; i++){
+		ans=max(ans,result[i]);
+	}
+	cout<<ans;
+	
+}
+
+int main(void){
+	cin>>v;
+	for(int i=1; i<=v; i++){
+		cin>>arr[i];
+		result[i]=arr[i];
+		int start;
+		cin>>e;
+		for(int j=0; j<e; j++){
+			cin>>start;
+			graph[start].push_back(i);
+		}
+		indegree[i]=e;
+	}
+	topologySort();
+	
+}
