@@ -18,7 +18,6 @@ void topologySort(){
 		int now=q.front();
 		q.pop();
 		for(int i=0; i<graph[now].size(); i++){
-			int next=graph[now][i];
 			indegree[graph[now][i]]-=1;
 			result[graph[now][i]]=max(result[graph[now][i]],result[now]+arr[graph[now][i]]);
 			//정점마다의 최소 건설 시간 == 선행 정점들의 건설 시간+자신의 시간 
