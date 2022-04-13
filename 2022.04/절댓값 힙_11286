@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+struct comp{
+	bool operator()(int a,int b){
+		if(abs(a)==abs(b)){ //절댓값이 같으면 아무거나
+			return a>b;
+		}
+		else{
+			return abs(a)>abs(b);// 절대값이 작은 것이 우선, 반대로 abs(a)<abs(b)로 하면 큰 것이 우선.
+		}
+	}
+};
+priority_queue<int,vector<int>,comp> pq; //우선 순위 큐의 활용 priority_queue<자료형,구현체,비교연산자>pq;
+int main(void){
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	int N;
+	cin>>N;
+	for(int i=0; i<N; i++){
+		int cal;
+		cin>>cal;
+		if(cal!=0){
+			pq.push(cal);
+		}
+		else{
+			if(!pq.empty()){
+				cout<<pq.top()<<endl;
+				pq.pop();
+			}
+			else{
+				cout<<"0"<<endl;
+			}
+		}
+	}
+}
