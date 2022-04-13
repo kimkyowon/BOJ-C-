@@ -4,3 +4,4 @@
 [작업](https://www.acmicpc.net/problem/2056)   ||
 [선수 과목](https://www.acmicpc.net/problem/14567)   ||
 [문제집](https://www.acmicpc.net/problem/1766)   ||
+[절댓값 힙](https://www.acmicpc.net/problem/11286)   ||
