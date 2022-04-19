@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+int V,E;
+int n,m;
+vector<int>graph[100];
+int visited[101];
+int cnt[101];
+void bfs(int v){
+	queue<int>q;
+	q.push(v);
+	visited[v]=1;	
+	
+	while(!q.empty()){
+		int now=q.front();
+		q.pop();
+		
+		for(int i=0; i<graph[now].size(); i++){
+			int y=graph[now][i];
+			if(visited[y]!=1){
+				q.push(y);
+				visited[y]=1;
+				cnt[y]=cnt[now]+1;
+			}
+		}
+	}
+}
+
+int main(){
+	cin>>V;
+	cin>>n>>m;
+	cin>>E;
+	for(int i=0; i<E; i++){
+		int a,b;
+		cin>>a>>b;
+		graph[a].push_back(b);
+		graph[b].push_back(a);
+	}
+	bfs(n);
+	if(cnt[m]==0){
+		cout<<-1;
+	}
+	else{
+		cout<<cnt[m];
+	}
+}
