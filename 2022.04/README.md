@@ -5,6 +5,6 @@
 [선수 과목](https://www.acmicpc.net/problem/14567)   ||
 [문제집](https://www.acmicpc.net/problem/1766)   ||
 [절댓값 힙](https://www.acmicpc.net/problem/11286)   ||
-[아기 상어](https://www.acmicpc.net/problem/11286)   ||
-[프린트](https://www.acmicpc.net/problem/11286)   ||
+[아기 상어](https://www.acmicpc.net/problem/16236)   ||
+[프린트](https://www.acmicpc.net/problem/1966)   ||
 [촌수계산](https://www.acmicpc.net/problem/2644)   ||
