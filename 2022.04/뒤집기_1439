@@ -1,0 +1,27 @@
+//0은 48 1은 49라는 점을 이용. 
+// 덩어리들을 파악하여 더 적은 쪽으로 뒤집기 실행
+// cout의 주석(13,15,19줄)을 해제하면 이해에 도움이 되실겁니다!
+#include<bits/stdc++.h>
+using namespace std;
+string h;
+int arr[2];
+int main(){
+	cin>>h;
+	int e=h[0];
+	arr[e-48]++;
+	for(int i=1; i<h.length(); i++){
+		//cout<<"index start is:"<<i<<endl;
+		if(h[i]!=h[i-1]){
+			//cout<<h[i-1]-48<<' '<<h[i]-48<<endl;
+			arr[h[i]-48]++; 
+		}
+	}
+	//cout<<"0의 덩어리 수"<<arr[0]<<" end 1의 덩어리 수"<<arr[1]<<endl;
+	if(arr[1]>=arr[0]){
+		cout<<arr[0];
+	} 
+	else{
+		cout<<arr[1];
+	}
+	
+}
