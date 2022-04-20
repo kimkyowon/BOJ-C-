@@ -9,3 +9,4 @@
 [프린트](https://www.acmicpc.net/problem/1966)   ||
 [촌수계산](https://www.acmicpc.net/problem/2644)   ||
 [숫자고르기](https://www.acmicpc.net/problem/2668)   ||
+[회장뽑기](https://www.acmicpc.net/problem/2660)   ||
