@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+int T,N;
+
+int main(void){
+	T=124;
+	cin>>T;
+	while(T--){
+		int cnt=0;
+		vector<pair<int,int> > result;
+		cin>>N;
+		int max_doc=0,max_inter=0;
+		for(int i=1; i<=N; i++){
+			int doc,inter;
+			cin>>doc>>inter;
+			result.push_back({doc,inter});
+		}
+		sort(result.begin(),result.end()); //서류 점수를 기준으로 정렬됨
+	
+		for(int i=1; i<N; i++){
+			if(result[max_doc].second>result[i].second){ //어차피 밑으로 탐색할수록 서류점수가 낮은애들이니까 합격하려면 면접점수라도 높아야 하므로.
+				max_doc=i;
+				cnt++;
+			}		
+				
+		}
+		cout<<cnt+1<<endl;
+		cnt=0;
+	}		
+	
+}
