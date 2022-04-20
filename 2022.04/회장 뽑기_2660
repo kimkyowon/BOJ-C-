@@ -1,0 +1,70 @@
+//cout부분의 주석을 해제하고 보시면 이해하기 편하실겁니다!
+#include<bits/stdc++.h>
+using namespace std;
+
+int N;
+int visited[51];
+vector<int>graph[51];
+int dp[51];
+int start_index=0;
+vector<int>result[51];
+int minn=12521521;
+
+void bfs(int v){
+	int visit_cnt=1;
+	int max=-123;
+	queue<int>q;
+	q.push(v);
+	visited[v]=1;
+	//cout<<v<<"에서 탐색 시작!"<<endl;
+	while(!q.empty()){
+		int now=q.front();
+		q.pop();
+		for(int i=0; i<graph[now].size(); i++){
+			int y=graph[now][i];
+			if(visited[y]!=1){
+				if(graph[now][i]!=v){
+					dp[graph[now][i]]+=dp[now]+1;	
+				}
+				//cout<<graph[now][i]<<"의 값은"<<dp[graph[now][i]]<<"입니다"<<endl; 
+				if(max<dp[graph[now][i]]){
+					max=dp[graph[now][i]];
+				}
+				visited[y]=1;
+				visit_cnt++;
+				q.push(y);
+			}
+		}
+	}
+	//cout<<"최대값(모두 다 친해지는데 걸리는 다리 수)은 :"<<max<<endl;
+	if(visit_cnt==N){
+		result[max].push_back(start_index);	
+		//cout<<"result["<<max<<"]에 "<<start_index<<"를 넣었습니다."<<endl;
+	}
+	if(minn>max){
+		minn=max;
+	}
+} 
+
+int main(void){
+  ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+	cin>>N;
+	int start=0,end=0;
+	while(start!=-1&&end!=-1){
+		cin>>start>>end;
+		graph[start].push_back(end);
+		graph[end].push_back(start);
+	}
+	int min=1024214;
+	for(int i=1; i<=N; i++){
+		start_index=i;
+		bfs(i);
+		fill(dp,dp+N+1,0);
+		fill(visited,visited+N+1,0);
+		//printf("\n");
+	}
+	cout<<minn<<' '<<result[minn].size()<<endl;
+	for(int i=0; i<result[minn].size(); i++){
+		cout<<result[minn][i]<<' ';
+	}	
+}
