@@ -11,3 +11,4 @@
 [숫자고르기](https://www.acmicpc.net/problem/2668)   ||
 [회장뽑기](https://www.acmicpc.net/problem/2660)   ||
 [뒤집기](https://www.acmicpc.net/problem/1439)   ||
+[신입사원](https://www.acmicpc.net/problem/1946)   ||
