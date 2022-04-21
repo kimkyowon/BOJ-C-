@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+int N;
+vector<int>result;
+
+int main(void){
+	cin>>N;
+	for(int i=1; i<=N; i++){
+		int a;
+		cin>>a;
+		result.push_back(a);
+	}
+	sort(result.begin(),result.end());
+	long long cnt=0;
+	int now_rank=0;
+	for(int i=1; i<=N; i++){
+		cnt+=abs(i-result[i-1]);
+	}
+	cout<<cnt;
+	
+}
