@@ -13,3 +13,4 @@
 [뒤집기](https://www.acmicpc.net/problem/1439)   ||
 [신입사원](https://www.acmicpc.net/problem/1946)   ||
 [해킹](https://www.acmicpc.net/problem/10282)   ||
+[등수 매기기](https://www.acmicpc.net/problem/2012)   ||
