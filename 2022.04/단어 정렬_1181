@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+vector<string> result[51];
+int arr[20001];
+int main(void){
+	int T; cin>>T;
+	for(int i=0; i<T; i++){
+		string a; cin>>a;
+		result[a.length()].push_back(a);
+	}
+	for(int i=1; i<=50; i++){
+		sort(result[i].begin(),result[i].end());	
+	}
+	for(int i=1; i<=50; i++){
+		if(result[i].size()==0) continue; //없으면 출력할 필요 X
+		cout<<result[i][0]<<endl;
+		for(int j=1; j<result[i].size(); j++){
+			if(result[i][j-1]!=result[i][j]){
+				cout<<result[i][j]<<endl;	
+			}	
+		}
+	}	
+}
+// 벡터를 쓰면 알아서 사전순으로 정렬됨. 그러나 문제조건에 단어 길이가 짧은거부터 하라했으니 그 조건만 추가해주면 됨.
