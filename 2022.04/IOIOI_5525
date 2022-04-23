@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+int n,leng;
+int main(){
+	cin>>n>>leng;
+	string s="I";
+	for(int i=1; i<=n; i++){
+		s.push_back('O');
+		s.push_back('I');
+	}
+	string ss;
+	cin>>ss;
+	int cnt=0;
+	while(1){
+		if(ss.find(s)!=string::npos){
+			int index=ss.find(s);
+			ss.erase(ss.begin(),ss.begin()+index+1);
+			cout<<"now ss is: "<<ss<<endl;
+			cnt++;
+		}
+		else{
+			cout<<cnt;
+			break;
+		}
+	}
+	
+}
