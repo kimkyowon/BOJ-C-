@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+int visited[10];
+int main(void){
+	int a;
+	cin>>a;
+	
+	while(a>0){
+		int l=a%10;
+		visited[l]++;
+		a=a/10;
+	}
+	int result=0;
+	int aa=visited[6]+visited[9];
+	if(aa%2!=0){
+		visited[6]=aa/2+1;
+		visited[9]=aa/2+1;	
+	}
+	else{
+		visited[6]=aa/2;
+		visited[9]=aa/2;
+	}
+	for(int i=0; i<=9; i++){
+		result=max(result,visited[i]);
+	}
+	cout<<result;
+}
