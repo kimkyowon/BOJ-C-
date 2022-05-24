@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+int N,M;
+int visited[100001];
+vector<int>graph[100001];
+
+void DFS(int v){
+	visited[v]=1;
+	int check=0;
+	for(int i=0; i<graph[v].size(); i++){
+		if(visited[graph[v][i]]==0){
+			DFS(graph[v][i]);
+		}
+	}
+}
+
+int main(void){
+	cin>>N>>M;
+	for(int i=0; i<M; i++){
+		int a,b;
+		cin>>a>>b;
+		graph[a].push_back(b);
+		graph[b].push_back(a);
+	}
+	int result=0;
+	for(int i=1; i<=N; i++){
+		if(visited[i]==0){
+			DFS(i);
+			result++;
+		}
+	}
+	cout<<result;
+}
